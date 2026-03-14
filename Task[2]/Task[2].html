@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2 - Click Me button</title>
+    <script>
+         function on_page_load() {
+        function hi() {
+            console.log("Hello World");
+        }
+
+        let button = document.getElementById("btn");
+        button.addEventListener("click", hi);
+    }
+        window.addEventListener("load", on_page_load);
+    </script>
+</head>
+<body>
+
+    <button id="btn">Click me</button>
+
+    
+
+</body>
+</html>
