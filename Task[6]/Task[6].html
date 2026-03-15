@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 6 - Array Methods</title>
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function createBaseArray() {
+            let arr = [];
+            for (let i = 0; i <= 100; i++) {
+                arr.push(i);
+            }
+            return arr;
+        }
+
+        function on_page_load() {
+
+            function filterByThree() {
+                let x = createBaseArray();
+                let filtered = x.filter(function(num) {
+                    return num % 3 !== 0;
+                });
+                console.log("Task A (Removed divisible by 3):", filtered);
+            }
+
+            function extendArray() {
+                let x = createBaseArray();
+                for (let i = 101; i <= 150; i++) {
+                    x.push(i);
+                }
+                console.log("Task B (Added 100-150):", x);
+            }
+
+            function incrementEach() {
+                let x = createBaseArray();
+                for (let i = 0; i < x.length; i++) {
+                    x[i] += 3;
+                }
+                console.log("Task C (Each member + 3):", x);
+            }
+
+            function sliceRange() {
+                let x = createBaseArray();
+                for(let i=20; i<=40; i++) {
+                    console.log("Task D (Index " + i + "):", x[i]);
+                }
+            }
+
+            function shuffleAndSort() {
+                let x = createBaseArray();
+                shuffleArray(x);
+                console.log("Task E (Shuffled):", x);
+                
+                x.sort(function(a, b) {
+                    return b - a;
+                });
+                console.log("Task E (Sorted Descending):", x);
+            }
+
+            let btnA = document.getElementById("btnA");
+            btnA.addEventListener("click", filterByThree);
+
+            let btnB = document.getElementById("btnB");
+            btnB.addEventListener("click", extendArray);
+
+            let btnC = document.getElementById("btnC");
+            btnC.addEventListener("click", incrementEach);
+
+            let btnD = document.getElementById("btnD");
+            btnD.addEventListener("click", sliceRange);
+
+            let btnE = document.getElementById("btnE");
+            btnE.addEventListener("click", shuffleAndSort);
+        }
+
+        window.addEventListener("load", on_page_load);
+    </script>
+</head>
+<body>
+
+    <h3>Array Operations</h3>
+    <button id="btnA">Task A: Filter %3</button>
+    <button id="btnB">Task B: Push 100-150</button>
+    <button id="btnC">Task C: Map +3</button>
+    <button id="btnD">Task D: Slice 20-40</button>
+    <button id="btnE">Task E: Shuffle & Sort</button>
+
+
+</body>
+</html>
