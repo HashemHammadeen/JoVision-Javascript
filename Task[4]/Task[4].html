@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2 - Click Me button</title>
+    <script>
+         function on_page_load() {
+        function sum() {
+            let x = [];
+            let sum = 0;
+            for(let i=0;i<=100;i++) {
+                x.push(i);
+                sum += i;
+            }
+            console.log(sum);
+            let summation = document.getElementById("summation");
+            summation.innerHTML = "The sum of the first 100 natural numbers is: " + sum;
+        }
+
+        let button = document.getElementById("btn");
+        button.addEventListener("click", sum);
+    }
+        window.addEventListener("load", on_page_load);
+    </script>
+</head>
+<body>
+
+    <button id="btn">Click me</button>
+
+    <div id="summation"></div>
+
+</body>
+</html>
