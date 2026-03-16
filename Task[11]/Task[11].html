@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 11</title>
+    <script>
+        function onPageLoad() {
+            let dom = document.getElementById('ip-button');
+            
+            fetch('https://api.ipify.org/')
+                .then(response => {
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    return response.text();
+                })
+                .then(data => {
+                    dom.innerText = "Your IP is: " + data;
+                })
+                .catch(error => {
+                    alert("Error: " + error.message);
+                });
+        }
+    </script>
+</head>
+<body>
+    <button onclick="onPageLoad()" id="ip-button">Get IP</button>
+</body>
+</html>
