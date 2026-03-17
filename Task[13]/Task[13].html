@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 13</title>
+    <script>
+        function getAge() {
+            const nameInput = document.getElementById('name').value;
+            
+            fetch(`https://api.agify.io?name=${nameInput}`)
+                .then(response => response.json()) 
+                .then(data => {
+                    const { name, age } = data;
+
+                    alert(`Your name is: ${name}\nYour age is: ${age}`);
+                })
+                .catch(error => alert("Error fetching data"));
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Name">
+    <button onclick="getAge()">Submit</button>
+</body>
+</html>
