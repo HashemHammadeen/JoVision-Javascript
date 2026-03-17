@@ -1,0 +1,21 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 9</title>
+    <script>
+       
+            function getIP(){
+                fetch('https://api.ipify.org/')
+                .then(response => response.text())
+                .then(data => {
+            console.log("Your IP is: " + data);
+        });
+            }
+        
+    </script>
+</head>
+<body>
+    <button onclick="getIP()">Get IP</button>
+</body>
+</html>
